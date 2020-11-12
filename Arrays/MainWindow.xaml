@@ -19,14 +19,18 @@
         </Grid.ColumnDefinitions>
    
     <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
-        <TextBox x:Name="Razmer" Background="Blue" Width="200" Margin="10 10 10 10" FontSize="30"/>
+        <TextBox x:Name="Razmer" Background="Blue" Width="50" Margin="10 10 10 10" FontSize="30"/>
+            <TextBox x:Name="Column" Background="Blue" Width="50" Margin="10 10 10 10" FontSize="30"/>
             <Button Content="Сгенерировать" Margin="10 10 10 10" Click="Button_Click"/>
-    </StackPanel>
+            <Button Content="Матрица" Margin="10 10 10 10" Click="Button_Click_4"/>
+        </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
             <TextBox x:Name="chislo" Width="50" Margin="10 10 10 10"/>
             <Button Content="Номер" Margin="10 10 10 10" Click="Button_Click_1"/>
             <Button Content="max" Margin="10 10 10 10" Click="Button_Click_2"/>
             <Button Content="4" Margin="10 10 10 10" Width="30" Click="Button_Click_3"/>
+            <Button Content="min" Margin="10 10 10 10" Width="30" Click="Button_Click_5" />
+            <Button Content="5" Margin="10 10 10 10" Width="30" Click="Button_Click_6" />
         </StackPanel>
         <TextBlock FontSize="20" x:Name="Result"  Grid.Row="2" Grid.Column="1" Margin="10 10 10 10" Background="White" TextWrapping="Wrap"/>
     </Grid>

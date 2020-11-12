@@ -21,6 +21,7 @@ namespace Arrays
     public partial class MainWindow : Window
     {
         int[] mas;
+        int[,] mas2;
         public MainWindow()
         {
             InitializeComponent();
@@ -88,6 +89,75 @@ namespace Arrays
                 st += mas[i] + " ";
             }
             Result.Text += "Измененный массив:"+Environment.NewLine+st;
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int n = int.Parse(Razmer.Text);
+                int m = int.Parse(Column.Text);
+                mas2 = new int[n,m];
+                Random rnd = new Random();
+                string st = "";
+                for(int i=0;i<n;i++)
+                {
+                    for(int j=0;j<m;j++)
+                    {
+                        mas2[i,j] = rnd.Next(11)-5;
+                        st += mas2[i,j] + " ";
+                    }
+                    st += Environment.NewLine;
+                }
+                Result.Text = st;
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            int min = int.MaxValue;
+            int rows = mas2.GetUpperBound(0) + 1;
+            int columns = mas2.Length / rows;
+            for (int i=0;i<rows;i++)
+            {
+                for(int j=0;j<columns;j++)
+                {
+                    if (mas2[i, j] < min) min = mas2[i,j];
+                }
+            }
+            Result.Text += "Минимальный элемент массива:" + min+Environment.NewLine;
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            string st = "";
+            int rows = mas2.GetUpperBound(0) + 1;
+            int columns = mas2.Length / rows;
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    if (mas2[i, j] % 2 == 0) mas2[i, j] *= 2;
+                    else mas2[i, j] *= 3;
+                    st += mas2[i, j] + " ";
+                }
+                st += Environment.NewLine;
+            }
+            Result.Text += st;
+            int min = int.MaxValue;
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    if (mas2[i, j] < min) min = mas2[i, j];
+                }
+            }
+            Result.Text += "Минимальный элемент массива:" + min + Environment.NewLine;
         }
     }
 }
